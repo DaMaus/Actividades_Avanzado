@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head lang="es">
+    <meta charset="utf-8">
+    <title>Clase 14 Angular JS</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="img/pica.png">
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body ng-controller="movieCtrl as movie">
+
+    <div class="container">
+      <div class="row">
+        <input type="text" ng-model=search>
+
+        <!--
+        <div class="col s12 m2 center-align" ng-repeat="n in movie.nombre | filter:search">
+          <span>{{n.nombre}}</span><br>
+          <span>{{n.edad}}</span>
+        </div>
+      -->
+      </div>
+
+
+
+
+      <div class="row">
+        <br><br><br>
+        <div class="col s12 m4" ng-repeat="n in movie.collection | filter:search | orderBy: 'year': 1">
+          <div class="card z-depth-4">
+            <div class="card-image">
+              <img class="responsive-img" src="{{n.img}}">
+              <span class="card-title">{{n.name}}</span>
+            </div>
+            <div class="card-content">
+              <p>{{n.year}}<br>{{n.category}}</p>
+              <ul ng-repeat="m in n.cast">
+                <li>{{m}}</li>
+              </ul>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver pelicula</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </body>
+  <script type="text/javascript" src="js/jQuery.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</html>
